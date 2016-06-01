@@ -1,0 +1,33 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+$macolor: red;
+
+@mixin changeColor($amount) {
+	background: lighten($macolor, $amount);
+	color: yellow;
+}
+
+body {
+	background:$macolor;
+
+	div {
+		background:$macolor;
+		float: left;
+
+		&:after {
+			clear: both;
+			@include changeColor(10);
+		}
+
+		span {
+			background: lighten($macolor, 20);
+		}
+	}
+	.chat {
+
+		@extend div;
+		background: blue;
+	}
+}
